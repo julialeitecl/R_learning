@@ -1,7 +1,7 @@
 library(tidyverse)
 # 1 Data visualization ----
-### 1.2.5 Exercises -----
 library(palmerpenguins)
+### 1.2.5 Exercises -----
 
 # 1. How many rows are in penguins? How many columns?
 linhas <- dim(penguins)[1]
@@ -232,7 +232,7 @@ ggsave("mpg-plot.png")
 
 # 3  Data transformation ----
 library(nycflights13)
-install.packages("nycflights13")
+# install.packages("nycflights13")
 View(flights)
 ## 3.2.5 Exercises ----
 # 1. In a single pipeline for each condition, find all flights that meet the condition:
@@ -296,25 +296,4 @@ departures <- departures |>
   mutate(dep_delay_test = dep_time - sched_dep_time) |>
   mutate(test = dep_delay_test - dep_delay)
 departures
-
-# 2. Brainstorm as many ways as possible to select dep_time, dep_delay, arr_time, and arr_delay from flights.
-
-
-# 3. What happens if you specify the name of the same variable multiple times in a select() call?
-  
-# 4. What does the any_of() function do? Why might it be helpful in conjunction with this vector?
-  # variables <- c("year", "month", "day", "dep_delay", "arr_delay")
-
-# 5. Does the result of running the following code surprise you? How do the select helpers deal with upper and lower case by default? How can you change that default?
-  # flights |> select(contains("TIME"))
-
-# 6. Rename air_time to air_time_min to indicate units of measurement and move it to the beginning of the data frame.
-
-# 7. Why doesn’t the following work, and what does the error mean?
-  #   flights |> 
-  #   select(tailnum) |> 
-  #   arrange(arr_delay)
-  # #> Error in `arrange()`:
-  # #> ℹ In argument: `..1 = arr_delay`.
-  # #> Caused by error:
-  # #> ! object 'arr_delay' not found
+# R: esperava que o dep_delay fosse igual a (dep_time - sched_dep_time), porém em alguns voos eles diferem
